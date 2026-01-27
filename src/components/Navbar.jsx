@@ -12,7 +12,7 @@ const Navbar = () => {
                 </li>
                 <li>
                     <div className="font-bold text-xl">
-                        <h4><Link to="/">Meduim</Link></h4>
+                        <h4><Link to="/">Medism</Link></h4>
                     </div>
                 </li>
                 <li>

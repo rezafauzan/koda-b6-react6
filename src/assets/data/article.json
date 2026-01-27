@@ -5,6 +5,7 @@
         "slug": "belajar-react-dari-nol-konsep-dasar",
         "author": {
             "name": "Aelwyn",
+            "username": "aelwyn",
             "avatar": "https://i.pravatar.cc/40?img=7"
         },
         "content": "Artikel ini membahas konsep dasar React seperti component, JSX, props, dan state yang wajib dipahami oleh pemula sebelum masuk ke pembahasan yang lebih kompleks.",
@@ -20,7 +21,8 @@
         "title": "Perbedaan React dan Vue: Mana yang Cocok untuk Proyekmu?",
         "slug": "perbedaan-react-dan-vue",
         "author": {
-            "name": "Rivaro",
+            "name": "Aelwyn",
+            "username": "aelwyn",
             "avatar": "https://i.pravatar.cc/40?img=1"
         },
         "content": "React dan Vue sama-sama populer untuk membangun frontend modern. Artikel ini membahas perbedaan konsep, performa, dan ekosistem untuk membantu menentukan pilihan terbaik.",
@@ -37,6 +39,7 @@
         "slug": "react-hooks-usestate-useeffect",
         "author": {
             "name": "Lumira",
+            "username": "lumira",
             "avatar": "https://i.pravatar.cc/40?img=2"
         },
         "content": "React Hooks mempermudah pengelolaan state dan lifecycle. Artikel ini fokus pada useState dan useEffect lengkap dengan contoh kasus nyata.",
@@ -53,6 +56,7 @@
         "slug": "tips-optimasi-performa-react",
         "author": {
             "name": "Kaelix",
+            "username": "kaelix",
             "avatar": "https://i.pravatar.cc/40?img=4"
         },
         "content": "Optimasi performa React bisa dilakukan dengan memoization, lazy loading, dan code splitting. Artikel ini membahas teknik-teknik tersebut secara praktis.",
@@ -69,6 +73,7 @@
         "slug": "react-router-navigasi-spa-seo-friendly",
         "author": {
             "name": "Vyntra",
+            "username": "vyntra",
             "avatar": "https://i.pravatar.cc/40?img=5"
         },
         "content": "React Router memungkinkan navigasi tanpa reload halaman. Artikel ini membahas konfigurasi routing yang benar agar tetap ramah SEO.",

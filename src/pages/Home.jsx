@@ -10,7 +10,6 @@ const Home = () => {
             ambilData('/src/assets/data/article.json').then(data => { setArticles(data) })
         }, []
     )
-    console.log(articles)
     return (
         <section className="flex">
             <div className="container flex-3 flex flex-col items-center p-4">
@@ -25,8 +24,8 @@ const Home = () => {
                         articles.length > 0 && articles.map(
                             article => {
                                 return (
-                                    <Link to={"/article/" + article.id}>
-                                        <article key={"article-" + article.id} className="bg-white p-4 rounded">
+                                    <Link to={`/article/${article.author.username}/${article.slug}`} key={"article-" + article.id}>
+                                        <article className="bg-white p-4 rounded">
                                             <div className="container flex flex-col gap-4">
                                                 <div className="flex items-center gap-4">
                                                     <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
@@ -83,7 +82,7 @@ const Home = () => {
                             (article, index) => {
                                 return (
                                     index < 3 &&
-                                    <Link to={"/article/" + article.id}>
+                                    <Link to={`/article/${article.author.username}/${article.slug}`} key={"article-" + article.id}>
                                         <article className="bg-white p-4 rounded">
                                             <div className="container flex flex-col gap-4">
                                                 <div className="flex items-center gap-4">
