@@ -1,6 +1,16 @@
-import { FiBook } from "react-icons/fi";
+import { FiBook } from "react-icons/fi"
+import ambilData from "../lib/ambilData"
+import React from "react"
+import { Link } from "react-router-dom"
 
 const Home = () => {
+    const [articles, setArticles] = React.useState([])
+    React.useEffect(
+        () => {
+            ambilData('/src/assets/data/article.json').then(data => { setArticles(data) })
+        }, []
+    )
+    console.log(articles)
     return (
         <section className="flex">
             <div className="container flex-3 flex flex-col items-center p-4">
@@ -11,221 +21,93 @@ const Home = () => {
                     </ul>
                 </div>
                 <div className="section-body flex-1 w-full flex flex-col gap-4">
-                    <article className="bg-white p-4 rounded">
-                        <div className="container flex flex-col gap-4">
-                            <div className="flex items-center gap-4">
-                                <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
-                                    <img src="https://i.pravatar.cc/40?img=1" alt="Profile_Picture" />
-                                </div>
-                                <span>Author Name</span>
-                                <div className=" bg-blue-400 w-6 h-6 flex items-center justify-center overflow-hidden rounded-full">
-                                    <FiBook />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center gap-6">
-                                <div className="flex flex-col gap-4">
-                                    <h2 className="text-2xl font-bold">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?</h2>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, exercitationem? Quas dolores enim commodi mollitia nesciunt vel sit veritatis!</p>
-                                </div>
-                                <div className="flex flex-col justify-center">
-                                    <img src="https://placehold.co/600x400" alt="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?" />
-                                </div>
-                            </div>
-                            <div className="flex justify-evenly gap-4">
-                                <FiBook />
-                                <span>Jan 27, 2026</span>
-                                <span className="flex gap-4">
-                                    <FiBook />
-                                    <span>4.0k</span>
-                                </span>
-                                <span className="flex gap-4">
-                                    <FiBook />
-                                    <span>400</span>
-                                </span>
-                                <FiBook />
-                                <FiBook />
-                                <FiBook />
-                            </div>
-                        </div>
-                    </article>
-                    <article className="bg-white p-4 rounded">
-                        <div className="container flex flex-col gap-4">
-                            <div className="flex items-center gap-4">
-                                <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
-                                    <img src="https://i.pravatar.cc/40?img=2" alt="Profile_Picture" />
-                                </div>
-                                <span>Author Name</span>
-                                <div className=" bg-blue-400 w-6 h-6 flex items-center justify-center overflow-hidden rounded-full">
-                                    <FiBook />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center gap-6">
-                                <div className="flex flex-col gap-4">
-                                    <h2 className="text-2xl font-bold">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?</h2>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, exercitationem? Quas dolores enim commodi mollitia nesciunt vel sit veritatis!</p>
-                                </div>
-                                <div className="flex flex-col justify-center">
-                                    <img src="https://placehold.co/600x400" alt="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?" />
-                                </div>
-                            </div>
-                            <div className="flex justify-evenly gap-4">
-                                <FiBook />
-                                <span>Jan 27, 2026</span>
-                                <span className="flex gap-4">
-                                    <FiBook />
-                                    <span>4.0k</span>
-                                </span>
-                                <span className="flex gap-4">
-                                    <FiBook />
-                                    <span>400</span>
-                                </span>
-                                <FiBook />
-                                <FiBook />
-                                <FiBook />
-                            </div>
-                        </div>
-                    </article>
-                    <article className="bg-white p-4 rounded">
-                        <div className="container flex flex-col gap-4">
-                            <div className="flex items-center gap-4">
-                                <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
-                                    <img src="https://i.pravatar.cc/40?img=4" alt="Profile_Picture" />
-                                </div>
-                                <span>Author Name</span>
-                                <div className=" bg-blue-400 w-6 h-6 flex items-center justify-center overflow-hidden rounded-full">
-                                    <FiBook />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center gap-6">
-                                <div className="flex flex-col gap-4">
-                                    <h2 className="text-2xl font-bold">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?</h2>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, exercitationem? Quas dolores enim commodi mollitia nesciunt vel sit veritatis!</p>
-                                </div>
-                                <div className="flex flex-col justify-center">
-                                    <img src="https://placehold.co/600x400" alt="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?" />
-                                </div>
-                            </div>
-                            <div className="flex justify-evenly gap-4">
-                                <FiBook />
-                                <span>Jan 27, 2026</span>
-                                <span className="flex gap-4">
-                                    <FiBook />
-                                    <span>4.0k</span>
-                                </span>
-                                <span className="flex gap-4">
-                                    <FiBook />
-                                    <span>400</span>
-                                </span>
-                                <FiBook />
-                                <FiBook />
-                                <FiBook />
-                            </div>
-                        </div>
-                    </article>
-                    <article className="bg-white p-4 rounded">
-                        <div className="container flex flex-col gap-4">
-                            <div className="flex items-center gap-4">
-                                <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
-                                    <img src="https://i.pravatar.cc/40?img=6" alt="Profile_Picture" />
-                                </div>
-                                <span>Author Name</span>
-                                <div className=" bg-blue-400 w-6 h-6 flex items-center justify-center overflow-hidden rounded-full">
-                                    <FiBook />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center gap-6">
-                                <div className="flex flex-col gap-4">
-                                    <h2 className="text-2xl font-bold">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?</h2>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis, exercitationem? Quas dolores enim commodi mollitia nesciunt vel sit veritatis!</p>
-                                </div>
-                                <div className="flex flex-col justify-center">
-                                    <img src="https://placehold.co/600x400" alt="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?" />
-                                </div>
-                            </div>
-                            <div className="flex justify-evenly gap-4">
-                                <FiBook />
-                                <span>Jan 27, 2026</span>
-                                <span className="flex gap-4">
-                                    <FiBook />
-                                    <span>4.0k</span>
-                                </span>
-                                <span className="flex gap-4">
-                                    <FiBook />
-                                    <span>400</span>
-                                </span>
-                                <FiBook />
-                                <FiBook />
-                                <FiBook />
-                            </div>
-                        </div>
-                    </article>
+                    {
+                        articles.length > 0 && articles.map(
+                            article => {
+                                return (
+                                    <Link to={"/article/" + article.id}>
+                                        <article key={"article-" + article.id} className="bg-white p-4 rounded">
+                                            <div className="container flex flex-col gap-4">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
+                                                        <img src={article.author.avatar} alt={article.author.name} />
+                                                    </div>
+                                                    <span>{article.author.name}</span>
+                                                    <div className="bg-blue-400 w-6 h-6 flex items-center justify-center overflow-hidden rounded-full">
+                                                        <FiBook />
+                                                    </div>
+                                                </div>
+                                                <div className="flex justify-between items-center gap-6">
+                                                    <div className="flex flex-col gap-4">
+                                                        <h2 className="text-2xl font-bold">{article.title}</h2>
+                                                        <p>{article.content}</p>
+                                                    </div>
+                                                    <div className="flex flex-col justify-center">
+                                                        <img
+                                                            src="https://placehold.co/600x400"
+                                                            alt={article.title}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="flex justify-evenly gap-4">
+                                                    <FiBook />
+                                                    <span>{new Date(article.publishedAt).toLocaleDateString()}</span>
+                                                    <span className="flex gap-4">
+                                                        <FiBook />
+                                                        <span>{article.stats.views.toLocaleString()}</span>
+                                                    </span>
+                                                    <span className="flex gap-4">
+                                                        <FiBook />
+                                                        <span>{article.stats.likes.toLocaleString()}</span>
+                                                    </span>
+                                                    <FiBook />
+                                                    <FiBook />
+                                                    <FiBook />
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </Link>
+                                )
+                            }
+                        )
+                    }
                 </div>
             </div>
             <aside className="flex-1 justify-self-start p-4 flex flex-col rounded">
                 <div className="bg-white flex flex-col gap-4">
-                    <span className="text-l p-4">
+                    <span className="text-l p-4 font-bold">
                         Staff Picks
                     </span>
-                    <article className="bg-white p-4 rounded">
-                        <div className="container flex flex-col gap-4">
-                            <div className="flex items-center gap-4">
-                                <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
-                                    <img src="https://i.pravatar.cc/40?img=7" alt="Profile_Picture" />
-                                </div>
-                                <span>Author Name</span>
-                                <div className=" bg-blue-400 w-6 h-6 flex items-center justify-center overflow-hidden rounded-full">
-                                    <FiBook />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center gap-6">
-                                <div className="flex flex-col gap-4">
-                                    <h2 className="font-bold">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?</h2>
-                                    <span className="text-xs">1d ago</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article className="bg-white p-4 rounded">
-                        <div className="container flex flex-col gap-4">
-                            <div className="flex items-center gap-4">
-                                <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
-                                    <img src="https://i.pravatar.cc/40?img=9" alt="Profile_Picture" />
-                                </div>
-                                <span>Author Name</span>
-                                <div className=" bg-blue-400 w-6 h-6 flex items-center justify-center overflow-hidden rounded-full">
-                                    <FiBook />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center gap-6">
-                                <div className="flex flex-col gap-4">
-                                    <h2 className="font-bold">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?</h2>
-                                    <span className="text-xs">1d ago</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <article className="bg-white p-4 rounded">
-                        <div className="container flex flex-col gap-4">
-                            <div className="flex items-center gap-4">
-                                <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
-                                    <img src="https://i.pravatar.cc/40?img=10" alt="Profile_Picture" />
-                                </div>
-                                <span>Author Name</span>
-                                <div className=" bg-blue-400 w-6 h-6 flex items-center justify-center overflow-hidden rounded-full">
-                                    <FiBook />
-                                </div>
-                            </div>
-                            <div className="flex justify-between items-center gap-6">
-                                <div className="flex flex-col gap-4">
-                                    <h2 className="font-bold">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, laborum?</h2>
-                                    <span className="text-xs">1d ago</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                    {
+                        articles.length > 0 && articles.map(
+                            (article, index) => {
+                                return (
+                                    index < 3 &&
+                                    <Link to={"/article/" + article.id}>
+                                        <article className="bg-white p-4 rounded">
+                                            <div className="container flex flex-col gap-4">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
+                                                        <img src={article.author.avatar} alt={article.author.name} />
+                                                    </div>
+                                                    <span>{article.author.name}</span>
+                                                </div>
+                                                <div className="flex justify-between items-center gap-6">
+                                                    <div className="flex flex-col gap-4">
+                                                        <h2 className="font-bold">{article.title}</h2>
+                                                        <p className="text-xs">{article.content.slice(0,40)+"..."}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </Link>
+                                )
+                            }
+                        )
+                    }
                 </div>
                 <div className="bg-white flex flex-col gap-4">
-                    <span className="text-l p-4">
+                    <span className="text-l p-4 font-bold">
                         Recommended topics
                     </span>
                     <ul className="w-full flex flex-wrap items-center gap-6 p-4">

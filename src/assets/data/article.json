@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "title": "Belajar React dari Nol: Konsep Dasar yang Wajib Dipahami",
+        "slug": "belajar-react-dari-nol-konsep-dasar",
+        "author": {
+            "name": "Aelwyn",
+            "avatar": "https://i.pravatar.cc/40?img=7"
+        },
+        "content": "Artikel ini membahas konsep dasar React seperti component, JSX, props, dan state yang wajib dipahami oleh pemula sebelum masuk ke pembahasan yang lebih kompleks.",
+        "publishedAt": "2026-01-27",
+        "stats": {
+            "views": 4200,
+            "likes": 510
+        },
+        "rating": 4.6
+    },
+    {
+        "id": 2,
+        "title": "Perbedaan React dan Vue: Mana yang Cocok untuk Proyekmu?",
+        "slug": "perbedaan-react-dan-vue",
+        "author": {
+            "name": "Rivaro",
+            "avatar": "https://i.pravatar.cc/40?img=1"
+        },
+        "content": "React dan Vue sama-sama populer untuk membangun frontend modern. Artikel ini membahas perbedaan konsep, performa, dan ekosistem untuk membantu menentukan pilihan terbaik.",
+        "publishedAt": "2026-01-26",
+        "stats": {
+            "views": 3800,
+            "likes": 430
+        },
+        "rating": 4.4
+    },
+    {
+        "id": 3,
+        "title": "React Hooks: useState dan useEffect Dijelaskan dengan Contoh",
+        "slug": "react-hooks-usestate-useeffect",
+        "author": {
+            "name": "Lumira",
+            "avatar": "https://i.pravatar.cc/40?img=2"
+        },
+        "content": "React Hooks mempermudah pengelolaan state dan lifecycle. Artikel ini fokus pada useState dan useEffect lengkap dengan contoh kasus nyata.",
+        "publishedAt": "2026-01-25",
+        "stats": {
+            "views": 5600,
+            "likes": 720
+        },
+        "rating": 4.8
+    },
+    {
+        "id": 4,
+        "title": "Tips Optimasi Performa Aplikasi React agar Lebih Cepat",
+        "slug": "tips-optimasi-performa-react",
+        "author": {
+            "name": "Kaelix",
+            "avatar": "https://i.pravatar.cc/40?img=4"
+        },
+        "content": "Optimasi performa React bisa dilakukan dengan memoization, lazy loading, dan code splitting. Artikel ini membahas teknik-teknik tersebut secara praktis.",
+        "publishedAt": "2026-01-24",
+        "stats": {
+            "views": 2900,
+            "likes": 310
+        },
+        "rating": 4.2
+    },
+    {
+        "id": 5,
+        "title": "React Router: Cara Membuat Navigasi SPA yang SEO Friendly",
+        "slug": "react-router-navigasi-spa-seo-friendly",
+        "author": {
+            "name": "Vyntra",
+            "avatar": "https://i.pravatar.cc/40?img=5"
+        },
+        "content": "React Router memungkinkan navigasi tanpa reload halaman. Artikel ini membahas konfigurasi routing yang benar agar tetap ramah SEO.",
+        "publishedAt": "2026-01-23",
+        "stats": {
+            "views": 6100,
+            "likes": 880
+        },
+        "rating": 4.9
+    }
+]
