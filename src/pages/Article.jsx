@@ -11,7 +11,6 @@ function findBySlug(articles = [], slug = '') {
     return articles.find(article => article.slug === slug)
 }
 
-
 function findArticle(articles = [], slug = '', authorUsername = '') {
     const postsByUsername = filterByUsername(articles, authorUsername)
     return findBySlug(postsByUsername, slug)
