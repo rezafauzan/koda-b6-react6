@@ -3,36 +3,60 @@ import Navbar from "../components/Navbar"
 import ambilData from "../lib/ambilData"
 import React from "react"
 
-function filterByUsername(articles = [], username = ''){
-    return articles.filter(article=> article.author.username === username)
+function filterByUsername(articles = [], username = '') {
+    return articles.filter(article => article.author.username === username)
 }
 
-function findBySlug(articles = [], slug = ''){
+function findBySlug(articles = [], slug = '') {
     return articles.find(article => article.slug === slug)
 }
 
 
-function findArticle(articles = [], slug = '', authorUsername = ''){
+function findArticle(articles = [], slug = '', authorUsername = '') {
     const postsByUsername = filterByUsername(articles, authorUsername)
     return findBySlug(postsByUsername, slug)
 }
 
 const Article = () => {
-    const [articles, setArticles] = React.useState([])
-    const {username,slug} = useParams()
+    const [article, setArticle] = React.useState(null)
+    const { username, slug } = useParams()
     React.useEffect(
         () => {
-            ambilData('/src/assets/data/article.json').then(data => setArticles(findArticle(data, slug, username)))
-        }, []
+            ambilData('/src/assets/data/article.json').then(data => setArticle(findArticle(data, slug, username)))
+            // article && console.log(article.author.name)
+        }, [article]
     )
+
     return (
         <>
             <header><Navbar /></header>
             <main>
                 <section>
-                    <div className="container w-3xl bg-white shadow border border-black/40 rounded mx-auto flex flex-col">
-                        <div className="section-header flex flex-col gap-4"></div>
-                        <div className="section-body flex flex-col gap-4"></div>
+                    <div className="container w-3xl bg-white shadow border border-black/40 rounded mx-auto flex flex-col p-4 mt-4">
+                        <div className="section-header flex flex-col gap-4 py-4">
+                            <h1 className="text-center text-2xl font-bold">{(article != null ? article.title : "Loading...")}</h1>
+                            <div className="flex gap-4">
+                                <div className="w-6 h-6 overflow-hidden rounded-full flex justify-center">
+                                    {
+                                        (article != null ? <img src={article.author.avatar} alt={article.author.name} /> : "Loading...")
+                                    }
+                                </div>
+                                {
+                                    (article != null ? <span>{article.author.name}</span> : "Loading...")
+                                }
+                                {
+                                    (article != null ? <button className="border rounded-full px-4 cursor-pointer">Follow</button> : "Loading...")
+                                }
+                                {
+                                    (article != null ? <span>{article.publishedAt}</span> : "Loading...")
+                                }
+                            </div>
+                        </div>
+                        <div className="section-body flex flex-col justify-center items-center">
+                            {
+                                (article != null ? article.content : "Loading...")
+                            }
+                        </div>
                     </div>
                 </section>
             </main>
