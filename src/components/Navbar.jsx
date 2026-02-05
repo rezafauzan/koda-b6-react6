@@ -30,7 +30,10 @@ const Navbar = () => {
                     <button><FiBell /></button>
                 </li>
                 <li>
-                    <div className="bg-blue-700 rounded-full w-10 h-10 overflow-hidden"><img src="https://i.pravatar.cc/40?img=4" alt="Profile_Picture" /></div>
+                    <Link to={"/admin"} className="flex flex-col justify-center items-center animate-pulse">
+                        <div className="bg-blue-700 rounded-full w-10 h-10 overflow-hidden"><img src="https://i.pravatar.cc/40?img=4" alt="Profile_Picture"/></div>
+                        <span className="text-blue-400">Admin page here</span>
+                    </Link>
                 </li>
             </ul>
         </nav>
