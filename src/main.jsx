@@ -1,8 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
+import App from './App'
+import Admin from './pages/Admin'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Article from './pages/Article.jsx'
+import Article from './pages/Article'
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/article/:username/:slug",
     element: <Article />
+  },
+  {
+    path: "/admin",
+    element: <Admin />
   }
 ])
 
