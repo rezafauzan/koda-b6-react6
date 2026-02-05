@@ -7,6 +7,15 @@ merupakan project aplikasi web kloning dari Medium.com yang dibangun menggunakan
 ## Article Page Screenshot
 ![Article Page Screenshot](./public/assets/img/screenshoot/articlepage.png)
 
+## Admin Page Screenshot
+![Admin Page Screenshot](./public/assets/img/screenshoot/adminpage.png)
+
+## Home Page After New Article Added
+![Home Page After New Article Added](./public/assets/img/screenshoot/added.png)
+
+## New Article Page Screenshot
+![New Article Page Screenshot](./public/assets/img/screenshoot/newarticle.png)
+
 ## How to run it
 - Download source code
 - npm install
