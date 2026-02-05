@@ -39,7 +39,7 @@ const Home = () => {
                                                 <div className="flex justify-between items-center gap-6">
                                                     <div className="flex flex-col gap-4">
                                                         <h2 className="text-2xl font-bold">{article.title}</h2>
-                                                        <p>{article.content}</p>
+                                                        <p>{article.content.slice(0,100) + "..."}</p>
                                                     </div>
                                                     <div className="flex flex-col justify-center">
                                                         <img
