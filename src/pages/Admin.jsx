@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom"
 const Admin = () => {
     const { register, handleSubmit } = useForm()
     const [articles, setArticles] = React.useState(null)
+    const [modal, setModal] = React.useState("")
     const navigator = useNavigate()
 
     React.useEffect(
@@ -36,7 +37,7 @@ const Admin = () => {
         }
         articles.push(article)
         window.localStorage.setItem('articles', JSON.stringify(articles))
-
+        setModal("Article added! redirect to homepage in 4 sec")
         setTimeout(
             ()=>{
                 navigator("/")
@@ -50,7 +51,17 @@ const Admin = () => {
                 <section>
                     <div className="container w-3xl bg-white shadow border border-black/40 rounded mx-auto flex flex-col p-4 mt-4">
                         <div className="section-header flex flex-col gap-4 py-4">
-                            <h1 className="text-xl font-bold text-center">Admin Page</h1>
+                            <h1 className="text-xl font-bold text-center p-4">Admin Page</h1>
+                            {
+                                (
+                                    modal.length > 0 ?
+                                    <span className="bg-green-400 border border-green-700 text-green-700">
+                                        {modal}
+                                    </span>
+                                    :
+                                    ""
+                                )
+                            }
                             {
                                 (
                                     articles != null
