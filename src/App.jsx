@@ -1,7 +1,14 @@
+import React from "react"
 import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
-function App() {
+import ambilData from "./lib/ambilData"
 
+function App() {
+    React.useEffect(
+        () => {
+            ambilData('/src/assets/data/article.json').then(data => { window.localStorage.setItem('articles', JSON.stringify(data)) })
+        }, []
+    )
     return (
         <>
             <header>

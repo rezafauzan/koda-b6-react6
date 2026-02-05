@@ -7,8 +7,9 @@ const Home = () => {
     const [articles, setArticles] = React.useState([])
     React.useEffect(
         () => {
-            ambilData('/src/assets/data/article.json').then(data => { setArticles(data) })
-        }, []
+            setArticles(JSON.parse(window.localStorage.getItem("articles")) || [])
+        }
+        , []
     )
     return (
         <section className="flex">
@@ -21,54 +22,57 @@ const Home = () => {
                 </div>
                 <div className="section-body flex-1 w-full flex flex-col gap-4">
                     {
-                        articles.length > 0 && articles.map(
-                            article => {
-                                return (
-                                    <Link to={`/article/${article.author.username}/${article.slug}`} key={"article-" + article.id}>
-                                        <article className="bg-white p-4 rounded">
-                                            <div className="container flex flex-col gap-4">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
-                                                        <img src={article.author.avatar} alt={article.author.name} />
+                        articles.length > 0 ?
+                            articles.map(
+                                article => {
+                                    return (
+                                        <Link to={`/article/${article.author.username}/${article.slug}`} key={"article-" + article.id}>
+                                            <article className="bg-white p-4 rounded">
+                                                <div className="container flex flex-col gap-4">
+                                                    <div className="flex items-center gap-4">
+                                                        <div className="w-6 h-6 overflow-hidden rounded-full bg-blue-400 flex justify-center">
+                                                            <img src={article.author.avatar} alt={article.author.name} />
+                                                        </div>
+                                                        <span>{article.author.name}</span>
+                                                        <div className="bg-blue-400 w-6 h-6 flex items-center justify-center overflow-hidden rounded-full">
+                                                            <FiBook />
+                                                        </div>
                                                     </div>
-                                                    <span>{article.author.name}</span>
-                                                    <div className="bg-blue-400 w-6 h-6 flex items-center justify-center overflow-hidden rounded-full">
+                                                    <div className="flex justify-between items-center gap-6">
+                                                        <div className="flex flex-col gap-4">
+                                                            <h2 className="text-2xl font-bold">{article.title}</h2>
+                                                            <p>{article.content.slice(0, 100) + "..."}</p>
+                                                        </div>
+                                                        <div className="flex flex-col justify-center">
+                                                            <img
+                                                                src="https://placehold.co/600x400"
+                                                                alt={article.title}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex justify-evenly gap-4">
+                                                        <FiBook />
+                                                        <span>{new Date(article.publishedAt).toLocaleDateString()}</span>
+                                                        <span className="flex gap-4">
+                                                            <FiBook />
+                                                            <span>{article.stats.views.toLocaleString()}</span>
+                                                        </span>
+                                                        <span className="flex gap-4">
+                                                            <FiBook />
+                                                            <span>{article.stats.likes.toLocaleString()}</span>
+                                                        </span>
+                                                        <FiBook />
+                                                        <FiBook />
                                                         <FiBook />
                                                     </div>
                                                 </div>
-                                                <div className="flex justify-between items-center gap-6">
-                                                    <div className="flex flex-col gap-4">
-                                                        <h2 className="text-2xl font-bold">{article.title}</h2>
-                                                        <p>{article.content.slice(0,100) + "..."}</p>
-                                                    </div>
-                                                    <div className="flex flex-col justify-center">
-                                                        <img
-                                                            src="https://placehold.co/600x400"
-                                                            alt={article.title}
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div className="flex justify-evenly gap-4">
-                                                    <FiBook />
-                                                    <span>{new Date(article.publishedAt).toLocaleDateString()}</span>
-                                                    <span className="flex gap-4">
-                                                        <FiBook />
-                                                        <span>{article.stats.views.toLocaleString()}</span>
-                                                    </span>
-                                                    <span className="flex gap-4">
-                                                        <FiBook />
-                                                        <span>{article.stats.likes.toLocaleString()}</span>
-                                                    </span>
-                                                    <FiBook />
-                                                    <FiBook />
-                                                    <FiBook />
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </Link>
-                                )
-                            }
-                        )
+                                            </article>
+                                        </Link>
+                                    )
+                                }
+                            )
+                            :
+                            "Loading Articles Data..."
                     }
                 </div>
             </div>
@@ -94,7 +98,7 @@ const Home = () => {
                                                 <div className="flex justify-between items-center gap-6">
                                                     <div className="flex flex-col gap-4">
                                                         <h2 className="font-bold">{article.title}</h2>
-                                                        <p className="text-xs">{article.content.slice(0,40)+"..."}</p>
+                                                        <p className="text-xs">{article.content.slice(0, 40) + "..."}</p>
                                                     </div>
                                                 </div>
                                             </div>

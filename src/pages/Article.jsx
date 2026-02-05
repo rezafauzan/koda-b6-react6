@@ -4,6 +4,8 @@ import ambilData from "../lib/ambilData"
 import React from "react"
 
 function filterByUsername(articles = [], username = '') {
+    const userArticles = articles.filter(article => article.author.username === username)
+    if(userArticles)
     return articles.filter(article => article.author.username === username)
 }
 
@@ -18,13 +20,14 @@ function findArticle(articles = [], slug = '', authorUsername = '') {
 }
 
 const Article = () => {
-    const [article, setArticle] = React.useState(null)
+    const [article, setArticle] = React.useState([])
     const { username, slug } = useParams()
     React.useEffect(
         () => {
-            ambilData('/src/assets/data/article.json').then(data => setArticle(findArticle(data, slug, username)))
-            // article && console.log(article.author.name)
-        }, [article]
+            const articles = JSON.parse(window.localStorage.getItem("articles")) || []
+            setArticle(findArticle(articles, slug, username))
+        }
+        , []
     )
 
     return (
@@ -34,26 +37,36 @@ const Article = () => {
                 <section>
                     <div className="container w-3xl bg-white shadow border border-black/40 rounded mx-auto flex flex-col p-4 mt-4">
                         <div className="section-header flex flex-col gap-4 py-4">
-                            <h1 className="text-center text-2xl font-bold">{(article != null ? article.title : "Loading...")}</h1>
-                            <div className="flex gap-4">
-                                <div className="w-6 h-6 overflow-hidden rounded-full flex justify-center">
-                                    {
-                                        (article != null ? <img src={article.author.avatar} alt={article.author.name} /> : "Loading...")
-                                    }
-                                </div>
-                                {
-                                    (article != null ? <span>{article.author.name}</span> : "Loading...")
-                                }
-                                {
-                                    (article != null ? <button className="border rounded-full px-4 cursor-pointer">Follow</button> : "Loading...")
-                                }
-                                {
-                                    (article != null ? <span>{article.publishedAt}</span> : "Loading...")
-                                }
-                            </div>
+                            {
+                                article.length < 1
+                                    ?
+                                    "Article tidak ditemukan silahkan kembali ke halaman utama"
+                                    :
+                                    <>
+                                        <h1 className="text-center text-2xl font-bold">{(article != null ? article.title : "Loading...")}</h1>
+                                        <div className="flex gap-4">
+                                            <div className="w-6 h-6 overflow-hidden rounded-full flex justify-center">
+                                                {
+                                                    (article != null ? <img src={article.author.avatar} alt={article.author.name} /> : "Loading...")
+                                                }
+                                            </div>
+                                            {
+                                                (article != null ? <span>{article.author.name}</span> : "Loading...")
+                                            }
+                                            {
+                                                (article != null ? <button className="border rounded-full px-4 cursor-pointer">Follow</button> : "Loading...")
+                                            }
+                                            {
+                                                (article != null ? <span>{article.publishedAt}</span> : "Loading...")
+                                            }
+                                        </div>
+                                    </>
+                            }
+
                         </div>
                         <div className="section-body flex flex-col justify-center items-center">
                             {
+                                article.length < 1 ? "" :
                                 (article != null ? article.content : "Loading...")
                             }
                         </div>
