@@ -7,7 +7,42 @@ import { useNavigate } from "react-router-dom"
 const Admin = () => {
     const { register, handleSubmit } = useForm()
     const [articles, setArticles] = React.useState(null)
-    
+    const navigator = useNavigate()
+
+    React.useEffect(
+        () => {
+            setArticles(JSON.parse(window.localStorage.getItem("articles")) || null)
+        }
+        , []
+    )
+
+    function addArticle(data) {
+        const article = {
+            "id": articles.length+1,
+            "title": data.title,
+            "slug": data.title.toLowerCase().replaceAll(" ", "-"),
+            "author": {
+                "name": "Reza Fauzan",
+                "username": "rezafauzan",
+                "avatar": "https://i.pravatar.cc/40?img=4"
+            },
+            "content": data.content,
+            "publishedAt": moment().format("DD MMMM YYYY"),
+            "stats": {
+                "views": 0,
+                "likes": 0
+            },
+            "rating": 0
+        }
+        articles.push(article)
+        window.localStorage.setItem('articles', JSON.stringify(articles))
+
+        setTimeout(
+            ()=>{
+                navigator("/")
+            }, 4000
+        )
+    }
     return (
         <>
             <header><Navbar /></header>
