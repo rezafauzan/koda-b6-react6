@@ -6,7 +6,9 @@ import ambilData from "./lib/ambilData"
 function App() {
     React.useEffect(
         () => {
-            ambilData('/src/assets/data/article.json').then(data => { window.localStorage.setItem('articles', JSON.stringify(data)) })
+            if(window.localStorage.getItem('articles') == null){
+                ambilData('/src/assets/data/article.json').then(data => { window.localStorage.setItem('articles', JSON.stringify(data)) })
+            }
         }, []
     )
     return (
