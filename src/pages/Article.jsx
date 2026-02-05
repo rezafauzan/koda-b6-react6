@@ -4,8 +4,6 @@ import ambilData from "../lib/ambilData"
 import React from "react"
 
 function filterByUsername(articles = [], username = '') {
-    const userArticles = articles.filter(article => article.author.username === username)
-    if(userArticles)
     return articles.filter(article => article.author.username === username)
 }
 
@@ -20,14 +18,14 @@ function findArticle(articles = [], slug = '', authorUsername = '') {
 }
 
 const Article = () => {
-    const [article, setArticle] = React.useState([])
+    const [article, setArticle] = React.useState(null)
     const { username, slug } = useParams()
     React.useEffect(
         () => {
-            const articles = JSON.parse(window.localStorage.getItem("articles")) || []
+            const articles = JSON.parse(window.localStorage.getItem("articles")) || null
             setArticle(findArticle(articles, slug, username))
         }
-        , []
+        , [article]
     )
 
     return (
@@ -38,7 +36,7 @@ const Article = () => {
                     <div className="container w-3xl bg-white shadow border border-black/40 rounded mx-auto flex flex-col p-4 mt-4">
                         <div className="section-header flex flex-col gap-4 py-4">
                             {
-                                article.length < 1
+                                article == null
                                     ?
                                     "Article tidak ditemukan silahkan kembali ke halaman utama"
                                     :
@@ -66,7 +64,7 @@ const Article = () => {
                         </div>
                         <div className="section-body flex flex-col justify-center items-center">
                             {
-                                article.length < 1 ? "" :
+                                article == null ? "" :
                                 (article != null ? article.content : "Loading...")
                             }
                         </div>
